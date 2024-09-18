@@ -1,0 +1,76 @@
+<!-- Modal Header -->
+<div class="modal-header">
+    <h2 class="modal-title">{{ showSessionDetails ? 'Session Details' : data.data.remark }}</h2>
+    <button class="close-btn" (click)="closeModal()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <p class="modal-subtitle">DATE: {{ data.data.date }} AT {{ data.data.time }}</p>
+  
+    <!-- If showSessionDetails is false, display the main content -->
+    <div class="modal-content" *ngIf="!showSessionDetails">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td><span class="green-text">MATCH BETS</span></td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td><span class="red-text">MATCH LOST</span></td>
+            <td>0.00</td>
+          </tr>
+          <tr (click)="toggleSessionDetails()">
+            <td><a class="green-text">SESSION BETS</a></td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td><span class="red-text" >SESSION LOST</span></td>
+            <td>{{ data.data.lost }}</td>
+          </tr>
+          <tr>
+            <td><span class="green-text">WON BY</span></td>
+            <td>{{ data.data.wonBy }}</td>
+          </tr>
+          <tr>
+            <td><span class="red-text">LOST COINS</span></td>
+            <td>0.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Show session details when showSessionDetails is true -->
+    <ng-template [ngIf]="showSessionDetails">
+      <div class="modal-content">
+        <h2 class="modal-title">Session Bets</h2>
+        <table class="table table-striped">
+          <tbody  style="background-color: #0F212E">
+            <tr>
+                <th class="session-bets-header" colspan="5">50 balls run ls w</th>
+            </tr>
+            <tr>
+              <th class="session-bets-body-header">Amount</th>
+              <th class="session-bets-body-header">Rate</th>
+              <th class="session-bets-body-header">Run</th>
+              <th class="session-bets-body-header">Mode</th>
+              <th class="session-bets-body-header">Dec</th>
+            </tr>
+          </tbody>
+        </table>
+        <p class="red-text">LOST COINS - 456</p>
+  
+        <div class="modal-footer">
+          <button class="btn" (click)="backToMainView()">BACK</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  
+  <!-- Modal Footer -->
+  <div class="modal-footer" *ngIf="!showSessionDetails">
+    <button class="btn close-btn" (click)="closeModal()">CLOSE</button>
+  </div>
+  

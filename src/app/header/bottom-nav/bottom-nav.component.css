@@ -1,0 +1,90 @@
+
+
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: aliceblue;
+    background-color: #0F212F;
+    justify-content: space-around;
+    padding: 10px 0;
+  
+    z-index: 1000;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-nav-item i {
+    font-size: 22px;
+    margin-bottom: 3px;
+   
+}
+
+.bottom-nav-item span {
+    font-size: 11px;
+}
+
+
+@media screen and (max-width: 850px) {
+    .sidebar {
+        display: none; /* Hide sidebar below 850px */
+    }
+
+    .bottom-nav {
+        display: flex;
+    }
+    .bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #0F212F;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+    
+    /* Navigation item in bottom-nav */
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    
+    /* Active state styles */
+    .active-link {
+        background-color: #2D3E4E;
+        border-radius: 8px;
+        padding: 5px 10px;
+        color: white;
+    }
+    
+    /* Active icon and text color */
+    .active-link i, .active-link span {
+        color: white;
+    }
+    .bottom-nav {
+        display: flex;
+       /* Hidden by default */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: aliceblue;
+        background-color: #0F212F;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+  
+}

@@ -1,0 +1,72 @@
+<div class="inplay-main">
+  <div class="inplay-back">
+    <div class="btn btn-back" (click)="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+  </div>
+  <div class="inplay-text">INPLAY</div>
+</div>
+
+<div class="tab-bar">
+  <div
+    class="tab-item"
+    *ngFor="let sport of sports" 
+    [class.active]="selectedTab === sport.id" 
+    (click)="selectTab(sport.id)">
+    <i class="fas fa-cricket tab-icon"></i> <!-- You can make this dynamic -->
+    <span>{{ sport.name }}</span>
+  </div>
+</div>
+
+<!-- Sport-specific Matches Content -->
+<div class="container-fluid" *ngFor="let sport of sports" [hidden]="selectedTab !== sport.id">
+  <div class="row">
+    <div class="col-xl-7 xl-100">
+      <div class="row card-match">
+        <div class="owl-carousel owl-theme owl-loaded owl-drag" id="owl-carousel-14">
+          <div class="inplay">
+            <div class="card" *ngFor="let match of sport.matches" (click)="inPlayDetails(match.matchcode)">
+              <div class="card-header">
+                <div class="text-container">
+                  <div class="text-1">
+                    <p>{{ match.team1 }} VS {{ match.team2 }}</p>
+                  </div>
+                  <div class="text-2">
+                    <div class="live" *ngIf="match.isLive">
+                      <p>LIVE</p>
+                      <div class="blinking-bullet"></div>
+                    </div>
+                    <div class="upcoming" *ngIf="!match.isLive">
+                      <p>UPCOMING</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Date/Time for upcoming matches below the match title -->
+                <div class="upcoming-date-time" *ngIf="!match.isLive">{{ match.dateTime }}</div>
+                <div class="team-details">
+                  <div class="team-1">
+                    <img class="team-1-img" [src]="match.team1Img" alt="{{ match.team1 }}">
+                    <p>{{ match.team1 }}</p>
+                  </div>
+                  <h5>Vs</h5>
+                  <div class="team-2">
+                    <img class="team-2-img" [src]="match.team2Img" alt="{{ match.team2 }}">
+                    <p>{{ match.team2 }}</p>
+                  </div>
+                </div>
+                <div class="bets-details">
+                  <div class="bet-session-odds-match">
+                    <div class="bet-card" *ngFor="let bet of match.bets">
+                      <div class="bet-title">{{ bet.title }}</div>
+                      <div class="bet-value">{{ bet.value }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- End of card -->
+          </div> <!-- End of inplay -->
+        </div> <!-- End of owl-carousel -->
+      </div> <!-- End of row card-match -->
+    </div>
+  </div>
+</div>

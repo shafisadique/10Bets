@@ -1,0 +1,418 @@
+.sport-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.custom-modal-content .modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0 auto; /* Horizontally center the modal */
+}
+
+/* Ensure the modal content is styled properly */
+.custom-modal-content .modal-content {
+  border-radius: 10px; /* Optional: Add some border radius */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+}
+
+/* Remove any default margins */
+.custom-modal-content .modal-backdrop {
+  height: 100vh; /* Full screen backdrop */
+}
+
+/* This ensures the modal stays centered even when scrolling */
+body.modal-open {
+  overflow: hidden !important;
+  
+}
+
+.custome-button {
+    height: 40px;
+    background-color: #0F212E;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.match-card {
+margin-top: 10px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 10px;
+ 
+}
+.header{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  /* border-bottom: 1px solid black; */
+  height: 40px;
+}
+.match-score{
+  margin-bottom: 80px;
+}
+h4{
+  font-size: 18px;
+  padding-left: 20px;
+  /* background-color: #0F212E; */
+
+}
+/* .session-text{
+  width: 40px;
+  background-color: #0F212E;
+} */
+.icon-cricket{
+  font-family: 'poppins',sans-serif;
+  width: 55%;
+  margin-top: 8px;
+}
+.one-x-two{
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+.one,.x,.two{
+  display: flex;
+  flex: 1;
+  max-height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.match-details{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.match-left{
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.match-date{
+  width: 25%;
+  margin-left: 2px;
+
+}
+
+.match-team{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: white;
+  /* border-top-left-radius: 10px; */
+  background-color: #0F212E;
+  border-bottom: 1px solid white;
+}
+.rate{
+  font-size: 12px;
+  font-weight: 500;
+}
+.match-left:first-child .match-team {
+  /* border-top-left-radius: 10px; */
+  /* border-top-right-radius: 10px; */
+}
+.match-left:last-child .match-team {
+  border-bottom-left-radius: 10px;
+  /* border-bottom-right-radius: 10px; */
+}
+
+.match-left:not(:first-child):not(:last-child) .match-team {
+  border-radius: 0;
+}
+.match-team p{
+  margin-bottom: 2px;
+}
+
+.match-one-x-two{
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+
+.bet-one,.bet-x,.bet-two{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 50px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'poppins';
+  font-size: 12px;
+}
+
+
+.bet-one{
+  background-color: #69B1F0;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+.bet-x{
+  background-color: #5367B0;
+  color: white;
+}
+
+.bet-two{
+  background-color: #E26F7E !important;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  /* border-bottom-right-radius: 5px; */
+  /* border-top-right-radius:5px ; */
+}
+.n-run,.n-rate{
+  display: block;
+  flex-direction: column;
+}
+.match-time{
+  overflow-wrap: break-word;
+  font-size: 0.5rem;
+  margin-top: 9px;
+  padding-left: 2px;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.small-bracket{
+  color: #FFB449;
+  margin-left: 10px !important;
+  margin-top: 10px;
+}
+
+h2{
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+.session-row{
+  background-color: #0F212E;
+}
+.session-card {
+  background-color: #0F212E;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.session-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+}
+.session-row:last-child {
+  border-bottom: none;
+}
+
+.session-item {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+.session-header{
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+.session-body{
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+}
+
+.session-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  color: white;
+  border-bottom: 1px solid white;
+  /* background-color: #182f3f; */
+}
+
+.blinking-bullet {
+  display: inline-block; /* This makes the span respect width and height */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* This creates the circle shape */
+  background-color: red; /* Set the circle's color */
+  animation: blink 1s linear infinite;
+}
+
+.custome-button:hover {
+    background-color: #192e3f; /* Slight hover effect */
+}
+
+.custom-tabs {
+    display: flex;
+    background-color: #0E1F29;
+    border-radius: 50px;
+    padding: 5px;
+    width: max-content;
+    margin-left: 20px; /* Space between buttons and tabs */
+}
+
+.tab {
+    padding: 10px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.active-tab {
+    background-color: #445664; /* Lighter color for active tab */
+    color: white;
+}
+
+.tab:not(.active-tab):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.tab-content {
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.live-score{
+    width: 100%;
+    margin-top: 40px;
+
+}
+.live-score img{
+    width: 90%;
+    max-height: 250px;
+}
+
+.match-odds {
+  /* background-color: black; */
+  color: white;
+  max-width: 800px;
+  font-family: 'Poppins', sans-serif;
+}
+.cash-out {
+  display: flex;
+  margin-bottom: 5px;
+}
+.button-group {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #0F212E;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .col-xl-5 {
+    max-height: 100vh; /* Set height to full viewport */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    scrollbar-width: none;  /* Hide the scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+  
+  .toggle-button {
+    flex: 1;
+    padding: 10px 30px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .toggle-button.active {
+    background-color: #182f3f;
+    color: white;
+  }
+  
+  /* .toggle-button:not(.active):hover {
+    background-color: #1f3a4c;
+  } */
+  
+  .toggle-button + .toggle-button {
+    border-left: 1px solid #1f3a4c;
+  }
+  
+  .toggle-button:focus {
+    outline: none;
+  }
+  
+  @media only screen and (max-width: 1120px) {
+    /* .match-odds{
+      max-width: 600px;
+    }
+    .cash-out {
+      display: flex;
+      margin-bottom: 5px;
+    } */
+  }
+  @media (max-width: 768px) {
+    /* Adjust the tab size and font for mobile view */
+    .tab {
+        padding: 5px 15px; /* Smaller padding for mobile */
+        font-size: 10px;   /* Reduce font size */
+        border-radius: 25px; /* Slightly reduce the roundness */
+    }
+
+    /* Adjust the custom tabs container size in mobile */
+    .custom-tabs {
+        margin-left: 10px; /* Reduce left margin for mobile */
+    }
+    .header{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      /* border-bottom: 1px solid black; */
+      height: 35px;
+    }
+    .match-details{
+      width: 100%;
+    }
+  .match-team{
+    margin-left: 0;
+  }
+.button-group {
+  width: 100%;
+}
+}

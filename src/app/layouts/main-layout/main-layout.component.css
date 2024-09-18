@@ -1,0 +1,53 @@
+/* Header stays fixed at the top */
+.header {
+    height: 80px;
+    background-color: #1A2E3B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+/* Sidebar adjustment */
+.desktop-sidebar {
+    position: fixed;
+    top: 80px; /* Start below the header */
+    left: 5px; /* Align the sidebar to the left */
+    width: 70px; /* Sidebar width */
+    background-color: #1A2C38;
+    z-index: 999;
+    justify-content: center;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+/* Sidebar content container */
+.desktop-sidebar-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Make content scrollable if it overflows */
+}
+
+/* Main content adjustment */
+.main-body {
+    margin-left: 80px; /* Align content next to the sidebar */
+    padding-top: 80px; /* Add padding equal to the header height */
+    box-sizing: border-box; /* Ensure padding does not exceed 100% width */
+    width: calc(100% - 80px); /* Adjust width considering sidebar */
+}
+
+.main-content {
+    width: 100%;
+}
+
+/* Responsive design */
+@media screen and (max-width: 850px) {
+    .main-body {
+        margin-left: 0; /* Remove margin when sidebar is hidden */
+        width: 100%; /* Full width when sidebar is hidden */
+        padding-top: 80px; /* Maintain space for the fixed header */
+    }
+    .desktop-sidebar {
+        display: none; /* Hide sidebar on small screens */
+    }
+}

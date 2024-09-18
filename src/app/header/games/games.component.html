@@ -1,0 +1,63 @@
+<div class="tab-container">
+    <!-- Loop through each sport and display its matches -->
+    <div *ngFor="let sport of sportsDetails">
+    <div class="live-events-header">
+        <img [src]="sport.logo" alt="{{ sport.name }} Logo">
+      <h1> {{ sport.name }}</h1>
+      </div>
+      <!-- Show matches for the sport -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-7 xl-100 col-sm-12">
+            <div class="row card-match">
+              <div class="owl-carousel owl-theme owl-loaded owl-drag" id="owl-carousel-14">
+                <div class="inplay">
+                  <div class="card" *ngFor="let match of sport.matches; let i = index" (click)="matchDetails(match.matchcode)">
+                    <div class="card-header">
+                      <div class="text-container">
+                        <div class="text-1">
+                          <p>{{ match.team1 }} VS {{ match.team2 }}</p>
+                        </div>
+                        <div class="text-2">
+                            <div class="live" *ngIf="match.isLive">
+                              <p>LIVE</p>
+                              <div class="blinking-bullet"></div>
+                            </div>
+                            <div class="upcoming" *ngIf="!match.isLive">
+                              <p>UPCOMING</p>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                       <div class="upcoming-date-time" *ngIf="!match.isLive">{{ match.dateTime }}</div>
+                      <div class="team-details">
+                        <div class="team-1">
+                          <img class="team-1-img" [src]="match.team1Img" alt="{{ match.team1 }}" (error)="setDefaultImage($event)">
+                          <p>{{ match.team1 }}</p>
+                        </div>
+                        <h5>Vs</h5>
+                        <div class="team-2">
+                          <img class="team-2-img" [src]="match.team2Img" alt="{{ match.team2 }}" (error)="setDefaultImage($event)">
+                          <p>{{ match.team2 }}</p>
+                        </div>
+                      </div>
+                      <div class="bets-details">
+                        <div class="bet-session-odds-match">
+                          <div class="bet-card" *ngFor="let bet of match.bets">
+                            <div class="bet-title">{{ bet.title }}</div>
+                            <div class="bet-value">{{ bet.value }}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- End of card -->
+                </div> <!-- End of inplay -->
+              </div> <!-- End of owl-carousel -->
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  

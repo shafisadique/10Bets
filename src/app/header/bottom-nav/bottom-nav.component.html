@@ -1,0 +1,22 @@
+<div class="bottom-nav">
+    <div class="bottom-nav-item" [ngClass]="{'active-link': activeItem === 'INPLAY'}" (click)="setActive('INPLAY')">
+      <i class="fas fa-futbol"></i>
+      <span>In Play</span>
+    </div>
+    <div class="bottom-nav-item" [ngClass]="{'active-link': activeItem === 'CASINO'}" (click)="setActive('CASINO')">
+      <i class="fas fa-dice"></i>
+      <span>Casino</span>
+    </div>
+    <div class="bottom-nav-item" [ngClass]="{'active-link': activeItem === 'HOME'}" (click)="setActive('HOME')">
+      <i class="fas fa-home"></i>
+      <span>HOME</span>
+    </div>
+    <div class="bottom-nav-item" [ngClass]="{'active-link': activeItem === 'MY LEDGER'}" (click)="setActive('MY LEDGER')">
+      <i class="fas fa-book"></i>
+      <span>Ledger</span>
+    </div>
+    <div class="bottom-nav-item" [ngClass]="{'active-link': activeItem === 'LOG OUT'}" (click)="setActive('LOG OUT')">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </div>
+</div>

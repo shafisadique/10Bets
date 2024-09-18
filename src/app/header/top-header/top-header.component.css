@@ -1,0 +1,75 @@
+.header {
+    Display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    color: white;
+}
+.header {
+    height: 80px;
+    background-color: #1A2E3B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+
+.logo img {
+    height: 30px;
+}
+
+.user-balance {
+    display: flex;
+    align-items: center;
+}
+
+.balance-info {
+    background-color: #11202D;
+    padding: 7px 10px;
+ 
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.wallet-icon-container {
+    background-color: #738599;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.wallet-icon {
+    color: white;
+    font-size: 18px;
+}
+
+.user-icon-container {
+    margin-left: 20px;
+   
+    padding: 10px;
+  
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    color: white;
+    font-size: 18px;
+}
+
+/* Additional Styles to Ensure Consistency */
+
+.header * {
+    box-sizing: border-box;
+}
+
+.user-balance > div {
+    display: flex;
+    align-items: center;
+}
+

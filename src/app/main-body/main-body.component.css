@@ -1,0 +1,301 @@
+.banner-img img {
+    width: 100%;
+    height: 440px;
+}
+
+.col-sm-12 {
+    margin-bottom: 15px;
+}
+
+#carouselExample {
+    width: 100%;
+}
+
+.slider {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Hide the static image by default */
+
+
+.desktop-siderbar-header {
+    border-radius: 10px;
+    height: 82vh;
+    display: flex;
+    position: fixed;
+    width: 220px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-slider {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+.wallet h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center; /* Align text and image vertically */
+}
+
+.wallet h3 img {
+    margin-right: 5px; /* Space between the image and text */
+}
+
+.wallet p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.d-block {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+.popular-component {
+    display: none;
+}
+
+.action-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 44%;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #14222D;
+    border-radius: 12px;
+    padding: 7px;
+    gap: 5PX;
+    box-sizing: border-box;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 6px; /* Adjust padding */
+   
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 13px; /* Font size for text */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    flex: 1; /* Each item takes up equal space */
+    text-align: center;
+    min-width: 0; /* Ensure items don't take up too much space */
+}
+
+.action-item.active {
+    background-color: #2D3E4E; /* Background color for the active item */
+}
+
+.action-item:hover {
+    background-color: #2D3E4E; /* Same as active when hovered */
+}
+
+.action-icon {
+    margin-right: 10px;
+    font-size: 18px; 
+}
+
+
+.img-thumbnail {
+    width: 120px !important;
+    height: 160px !important;
+    border: none !important;
+    background-color: #1A2C38;
+
+    margin-right: 7px;
+    border-radius: 15px;
+    display: inline-block;
+    
+  }
+  
+  /* Style for the heading */
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    padding-left: 12px;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    color: white;
+  }
+  
+  /* Style for popular section in mobile view */
+  .popular {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+ 
+  
+  /* Style for card elements with large shadow */
+  .card {
+    flex: 0 0 auto; /* Prevent cards from shrinking and ensure they stay in a row */
+    width: 160px;
+    height: 220px;
+    margin-right: 10px;
+  
+    border-radius: 15px; 
+  
+  }
+  
+  .popular-desktop {
+    display: none; /* Hide by default */
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap; /* Prevent line breaks */
+    position: relative; /* For controlling the hover effect */
+  }
+  
+  .slider-content {
+    display: flex;
+ 
+  }
+  
+  .slider-content.paused {
+    animation-play-state: paused; /* Pause the animation */
+  }
+  
+  .slider-content .card {
+    margin-right: 10px;
+  }
+  
+  .img-thumbnail-desktop {
+    width: 160px !important;
+    height: 220px !important;
+    border-radius: 15px;
+    
+  }
+  .img-thumbnail img {
+    background-color: black;
+  }
+  /* Creating the continuous scrolling effect */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+
+
+
+  
+  /* Media query for desktop view */
+  @media (min-width: 992px) {
+    .popular {
+      display: none; /* Hide on desktop */
+    }
+  
+    .popular-desktop {
+      display: block; /* Show on desktop */
+    }
+  }
+
+
+/* Responsive styles */
+@media screen and (max-width: 900px) {
+    .action-bar {
+        width: 50%; /* Increase width for better fit on smaller screens */
+    }
+    .action-item {
+        padding: 12px 6px; /* Reduce padding */
+        font-size: 16px; /* Slightly reduce font size */
+    }
+    .action-icon {
+        font-size: 18px; /* Slightly reduce icon size */
+        margin-right: 8px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .action-bar {
+        width: 60%; /* Further increase width */
+    }
+    .action-item {
+        padding: 10px 6px; /* Further reduce padding */
+        font-size: 15px; /* Reduce font size */
+    }
+    .action-icon {
+        font-size: 18px; /* Reduce icon size */
+        margin-right: 6px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .action-bar {
+        width: 70%; /* Adjust width */
+    }
+    .action-item {
+        padding: 8px 6px; /* Reduce padding */
+        font-size: 12px; /* Further reduce font size */
+    }
+    .action-icon {
+        font-size: 13px; /* Further reduce icon size */
+        margin-right: 5px;
+    }
+}
+
+@media  screen and (max-width: 500px) {
+    .action-bar {
+        width: 94%; /* Full width on smallest screens */
+    }
+    .action-item {
+        padding: 8px; 
+        font-size: 11px; 
+    }
+    .action-icon {
+        font-size: 13px; 
+        margin-right: 4px;
+    }
+}
+
+
+
+
+/* Media query to handle screens smaller than 700px */
+@media screen and (max-width: 700px) {
+    /* Hide the carousel */
+    #carouselExample {
+        display: none;
+    }
+    
+    .carousel-img {
+        height: 240px;
+    }
+}
+@media screen and (min-width:700px) {
+    .slider-img img {
+        display: none !important;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .banner-img img {
+        width: 100%;
+        height: 440px;
+    }
+
+    .carousel-img {
+        height: 240px;
+    }
+}

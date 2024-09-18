@@ -1,0 +1,263 @@
+.ledger-main{
+    display: flex;
+    width: 100%;
+    margin: 10px;
+    margin-bottom: 30px;
+
+  }
+  .ledger-back{
+    width: 4%;
+    margin-right: 5px;
+    height: 40px;
+    color: white;
+  }
+  .ledger-text{
+    width: 92%;
+    background-color: #2E3E49;
+    color: white;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .btn-back{
+    background-color: #2E3E49;
+    border-radius: 5px;
+    width: 100%;
+    
+    height: 100%;
+  }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #192533;
+    color: #FFFFFF;
+}
+
+.ledger-container {
+    /* padding: 20px;
+    max-width:100%; */
+    margin: auto;
+    color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ledger-table th, .ledger-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.ledger-table thead {
+    background-color: #101923;
+}
+
+.ledger-table tbody tr:nth-child(even) {
+    background-color: #2E3D4B;
+}
+
+.ledger-table tbody tr:nth-child(odd) {
+    background-color: #212E3A;
+}
+
+.green-text {
+    color: #00FF00;
+}
+
+.red-text {
+    color: #FF0000;
+}
+
+@media (max-width: 600px) {
+    .ledger-table thead, .ledger-table tbody, .ledger-table th, .ledger-table td, .ledger-table tr {
+        display: block;
+    }
+    .ledger-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .ledger-table tr {
+        margin: 0 0 1rem 0;
+    }
+    .ledger-table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    .ledger-table td:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+    }
+    .ledger-table td:before {
+        content: attr(data-label);
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.betting-card {
+    background-color: #abb3b6; 
+    width: 400px;
+}
+
+.betting-card-container{
+    background-color: #192533; /* Dark grey/blue for card */
+    color: #A0A0A0; /* Light grey for text */
+    padding: 20px;
+    border-radius: 10px;
+
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+.header h1 {
+    color: #FFFFFF; /* White for the main title */
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #A0A0A0; /* Light grey for date text */
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.bet-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.green-text {
+    color: #00FF00; /* Green text for positives */
+    font-weight: bold;
+}
+
+.red-text {
+    color: #FF0000; /* Red text for negatives */
+    font-weight: bold;
+}
+.btn-back{
+    background-color: #2E3E49;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    padding-top: 8px;
+  }
+
+.close-btn {
+    background-color: #34495E; /* Dark blue/grey button */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    background-color: #2C3E50;
+}
+
+@media screen and (max-width: 500px) {
+    .ledger-back{
+        width: 10%;
+        margin-right: 5px;
+        height: 40px;
+        color: white;
+      }
+      .ledger-text{
+        width: 85%;
+        background-color: #2E3E49;
+        color: white;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 10px;
+        font-family: 'Poppins',sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .btn-back{
+        background-color: #2E3E49;
+        border-radius: 5px;
+        width: 100%;
+      
+        height: 100%;
+      }
+}
+
+.table-responsive {
+    overflow-x: auto; /* Allows horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on mobile */
+    width: 97%;
+    margin-bottom: 20px;
+  }
+  th{
+    background-color: #1A2C38;
+    color: white;
+    border: none;
+  }
+  td{
+    background-color: #1A2C38;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+  }
+  .table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #0F212E; 
+ }
+
+  
+  .table-responsive table {
+    width: 100%; /* Ensures the table takes the full width of the container */
+    min-width: 600px; /* Optional: minimum width of the table to maintain structure */
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 768px) {
+    .table-responsive {
+      width: 100%;
+      margin-bottom: 15px;
+      overflow-x: scroll;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  
+    .table-responsive::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
+  }
+  
