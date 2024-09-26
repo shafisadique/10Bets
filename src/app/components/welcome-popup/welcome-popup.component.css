@@ -1,0 +1,24 @@
+.modal-header,.modal-footer{
+    background-color: #445664;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+.modal-title{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+}
+.btn-close{
+    color: white;
+}
+p{
+    font-family: 'poppins',sans-serif;
+    font-size: 16px;
+}
+.custom-x-icon{
+    color: white !important;
+    font-size: 1.5rem; /* Adjust the size as needed */
+  }

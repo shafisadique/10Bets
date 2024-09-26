@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommingSoonModalComponent } from '../comming-soon-modal/comming-soon-modal.component';
 import { animate, state, style, transition, trigger } from '@angular/animations';

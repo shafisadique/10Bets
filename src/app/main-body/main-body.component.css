@@ -14,6 +14,7 @@
 .slider {
     width: 100%;
     padding: 10px;
+    padding-top: 20px;
 }
 
 /* Hide the static image by default */
@@ -120,14 +121,24 @@
     display: inline-block;
     
   }
-  
+  .event-item {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-bottom: 10px; /* Increased minimum width */
+  }
+
   /* Style for the heading */
   h1 {
     font-family: 'Poppins', sans-serif;
-    padding-left: 12px;
+    padding-left: 20px;
     font-size: 22px;
     font-weight: 500;
     padding-bottom: 10px;
+    padding-top: 10px;
+
     color: white;
   }
   

@@ -11,7 +11,7 @@
 }
 .desktop-sidebar {
     position: fixed;
-    top: 80px; /* Start below the header */
+    top: 90px; /* Start below the header */
     left: 5px; /* Align the sidebar to the left */
     width: 70px; /* Sidebar width */
     background-color: #1A2C38;

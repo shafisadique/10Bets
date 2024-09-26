@@ -1,4 +1,64 @@
 <div class="tab-container">
+  <div class="live-events-header">
+    <img src="assets/ball.png" alt="Cricket Logo">
+    <h1>Cricket</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-7 xl-100 col-sm-12">
+        <div class="row card-match">
+          <div class="owl-carousel owl-theme owl-loaded owl-drag" id="owl-carousel-14">
+            <div class="inplay">
+              <div class="card" *ngFor="let match of getGameList; let i = index" (click)="matchDetails(match.matchcode)">
+                <div class="card-header">
+                  <div class="text-container">
+                    <div class="text-1">
+                      <p> {{ match.title.length > 26 ? (match.title | slice:0:26) + '...' : match.title }}</p>
+                    </div>
+                    <div class="text-2">
+                      <div class="live" *ngIf="isLive(match.time, match.matchType)">
+                        <p>LIVE</p>
+                        <div class="blinking-bullet"></div>
+                      </div>
+                      <div class="upcoming" *ngIf="isUpcoming(match.time)">
+                        <p>UPCOMING</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body">
+                  <div class="upcoming-date-time" *ngIf="isUpcoming(match.time)">
+                    {{ match.time | date: 'short' }}
+                  </div>
+                  <div class="team-details">
+                    <div class="team-1">
+                      <img class="team-1-img" [src]="match.img1 || defaultImg" alt="{{ match.title }}" (error)="setDefaultImage($event)">
+                      <p>{{ match.title.split('V')[0].trim() }}</p>
+                    </div>
+                    <h5>Vs</h5>
+                    <div class="team-2">
+                      <img class="team-2-img" [src]="match.img2 || defaultImg" alt="{{ match.title }}" (error)="setDefaultImage($event)">
+                      <p>{{ match.title.split('V')[1].trim() }}</p>
+                    </div>
+                  </div>
+                  <!-- Add your bet details or other info here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="tab-container">
     <!-- Loop through each sport and display its matches -->
     <div *ngFor="let sport of sportsDetails">
     <div class="live-events-header">
@@ -12,7 +72,7 @@
             <div class="row card-match">
               <div class="owl-carousel owl-theme owl-loaded owl-drag" id="owl-carousel-14">
                 <div class="inplay">
-                  <div class="card" *ngFor="let match of sport.matches; let i = index" (click)="matchDetails(match.matchcode)">
+                  <div class="card" *ngFor="let match of sport.matches; let i = index" >
                     <div class="card-header">
                       <div class="text-container">
                         <div class="text-1">

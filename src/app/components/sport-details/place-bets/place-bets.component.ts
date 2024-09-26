@@ -2,11 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { SportService } from '../../../services/sport.service';
+import { ToastrService } from 'ngx-toastr';
+import { LoadingComponent } from '../../loading/loading.component';
 
 @Component({
   selector: 'app-place-bets',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,LoadingComponent],
   templateUrl: './place-bets.component.html',
   styleUrl: './place-bets.component.css'
 })
@@ -23,8 +26,8 @@ export class PlaceBetsComponent {
 
   constructor(
     public modal: NgbActiveModal,
-    // private amountBetService: PlaceBetPositionService,
-    // private toastr: ToastrService,
+    private amountBetService: SportService,
+    private toastr: ToastrService,
     private formBuilder: FormBuilder,
     // private headerService: HeaderService, // Inject BalanceService
     // private router:Router
@@ -75,76 +78,64 @@ export class PlaceBetsComponent {
       // Check if countdown has reached 0
       if (this.countDown === 0) {
         clearInterval(this.countdownInterval); // Clear interval to stop the countdown
-        this.dismiss(); // Dismiss the modal
+        this.modal.close(true);
       }
     }, 1000); // Decrease every second
   }
 
   onSubmit() {
     this.isLoading = true;
-  //  return  console.log(this.betForm.value.mode);
-    // if (this.errorMessage == '' && this.betForm.valid) {
-    //   if (this.betForm.value.mode === 'K' || this.betForm.value.mode === 'L') {
-    //     this.amountBetService.placeBetPositionForK(this.betForm.value).subscribe({
-    //       next: (res:any) => {
-    //         console.log(res)
-    //         if (res.status == false) {
-    //           this.toastr.error('Bet Not Placed', res.msg, {
-    //             timeOut: 3000,
-    //           });
-    //           this.modal.dismiss('Cross click');
-    //         } else {
-    //           this.toastr.success('Update successfully', res.msg);
-    //           this.updateBalance();
-    //           this.modal.dismiss('Cross click');
-    //         }
-    //       },
-    //       error: (e:any) => {
-    //         console.log(e);
-    //         this.toastr.error('Error', e.message, {
-    //           timeOut: 3000,
-    //         });
-    //         this.modal.dismiss('Cross click');
-    //       }
-    //     });
-    //   } else {
-    //     // this.amountBetService.placeBetPosition(this.betForm.value).subscribe({
-    //     //   next: (res) => {
-    //     //     if (res.status == false) {
-    //     //       this.toastr.error('Bet Not Placed', res.msg, {
-    //     //         timeOut: 3000,
-    //     //       });
-    //     //       this.modal.dismiss('Cross click');
-    //     //     } else {
-    //     //       this.toastr.success('Update successfully', res.msg);
-    //     //       this.router
-    //     //       this.modal.dismiss('Cross click');
-    //     //     }
-    //     //   },
-    //     //   error: (e) => {
-    //     //     console.log(e);
-    //     //     this.toastr.error('Error', e.message, {
-    //     //       timeOut: 3000,
-    //     //     });
-    //     //     this.modal.dismiss('Cross click');
-    //     //   }
-    //     // });
-    //   }
-    // }
-    console.log(this.selectedAmount);
+    if (this.errorMessage == '' && this.betForm.valid) {
+      if (this.betForm.value.mode === 'K' || this.betForm.value.mode === 'L') {
+        this.amountBetService.placeBetPositionForK(this.betForm.value).subscribe({
+          next: (res:any) => {
+            if (res.status == false) {
+              this.toastr.error('Bet Not Placed', res.msg, {
+                timeOut: 3000,
+              });
+              this.modal.dismiss('Cross click');
+            } else {
+              this.toastr.success('Update successfully', res.msg);
+              this.modal.dismiss('Cross click');
+            }
+            this.modal.close(true);
+          },
+          error: (e:any) => {
+            console.log(e);
+            this.toastr.error('Error', e.message, {
+              timeOut: 3000,
+            });
+            this.modal.close(true);
+          }
+        });
+      } else {
+        this.amountBetService.placeBetPosition(this.betForm.value).subscribe({
+          next: (res:any) => {
+            if (res.status == false) {
+              this.toastr.error('Bet Not Placed', res.msg, {
+                timeOut: 3000,
+              });
+              this.modal.dismiss('Cross click');
+            } else {
+              this.toastr.success('Update successfully', res.msg);
+              this.modal.dismiss('Cross click');
+            }
+            this.modal.close(true);
+          },
+          error: (e:Error) => {
+            console.log(e);
+            this.toastr.error('Error', e.message, {
+              timeOut: 3000,
+            });
+            this.modal.close(true);
+          }
+        });
+      }
+    }
+
   }
 
-  updateBalance() {
-    // Fetch the new balance from the server
-    // this.headerService.getDataOfUser().subscribe({
-    //   next: (userData) => {
-    //     this.headerService.updateBalance(userData.coin); // Update balance in the service
-    //   },
-    //   error: (error) => {
-    //     console.error('Failed to update balance:', error);
-    //   }
-    // });
-  }
+  
 
   ngOnDestroy(): void {
     if (this.countdownInterval) {

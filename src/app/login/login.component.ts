@@ -3,8 +3,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../services/auth.service';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { WelcomePopupComponent } from '../components/welcome-popup/welcome-popup.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit{
   showPassword = false;
   public validationError = false;
   errorMessage: string = '';
-   constructor(private authservice:AuthService,private formBuilder:FormBuilder,private toastr:ToastrService,private router:Router) { }
+   constructor(private authservice:AuthService,private formBuilder:FormBuilder,private toastr:ToastrService,private router:Router,private modalService:NgbModal) { }
    ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       code: ['', Validators.required],
@@ -30,21 +32,35 @@ export class LoginComponent implements OnInit{
     this.showPassword = !this.showPassword;
   }
   onSubmit() {
-    console.log('working')
-  if (this.loginForm.valid) {
-    let data = this.loginForm.value;
-    this.authservice.login(data).subscribe({
-      next: (res) => {
-        this.isLoading = false;
-        this.toastr.success('Login successful', 'Welcome To 10 Bets');
-        this.router.navigate(['/']); // Redirect after successful login
-      },
-      error: (err) => {
-        this.isLoading = false;
-        this.toastr.error('Invalid Username or Password', 'Login Failed');
-        this.validationError = true;
-      },
-    });
- }
-}
+    if (this.loginForm.valid) {
+      let data = this.loginForm.value;
+      this.authservice.login(data).subscribe({
+       next:(res:any)=>{
+        if (res.isSuccess == false){
+          this.toastr.error('Error',res.data);
+        }
+        if(res.isSuccess == true){
+          this.toastr.success('login Successfully');
+          const modalRef = this.modalService.open(WelcomePopupComponent, {
+            windowClass: 'custom-modal-content'
+        });
+        (<WelcomePopupComponent> modalRef.componentInstance).data = {
+            
+          }
+          this.router.navigate(['/tc'])
+        }
+        else{
+          this.router.navigate(['/login'])
+        }
+  
+       },
+       error:(e)=>{
+         console.log(e)
+         this.toastr.error('Issue in Loin',e.message,{
+           timeOut:300
+         });
+       }
+     })
+   }
+  }
 }

@@ -194,7 +194,7 @@
     margin-top: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     text-align: center;
     width: 100%;
   }
@@ -233,18 +233,27 @@
     padding-top: 3px;
   }
   
-  .team-1, .team-2 {
+  .team-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 41%;
   }
-  
+  .team-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 41%;
+  }
   .team-1-img, .team-2-img {
     width: 41px;
     height: 41px;
     margin-bottom: 5px;
+    border-radius: 50%;
   }
 
   .tab-container{

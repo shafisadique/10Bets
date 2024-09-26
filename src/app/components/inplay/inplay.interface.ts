@@ -4,14 +4,15 @@ export interface Bet {
   }
   
   export interface Match {
+    title: string;
     team1: string;
     team2: string;
     team1Img: string;
     team2Img: string;
-    isLive: boolean;
     matchcode: string;
-    dateTime?: string;
-    bets: Bet[];
+    isLive: boolean;
+    dateTime: string; // or Date if you're handling dates
+    bets: { title: string; value: string }[];
   }
 
   export interface Sport {
@@ -28,48 +29,7 @@ export interface Bet {
       name: 'Cricket',
       logo: 'assets/cricket-logo.png',
       matches: [
-        {
-          team1: 'India',
-          team2: 'Srilanka',
-          matchcode: 'A32',
-          team1Img: 'assets/india.png',
-          team2Img: 'assets/srilanka.png',
-          isLive: true,
-          bets: [
-            { title: 'MATCH BETS', value: '0' },
-            { title: 'SESSION BETS', value: '0' },
-            { title: 'MATCH TYPE', value: 'ODI' }
-          ]
-        },
-        {
-            team1: 'England',
-            team2: 'Australia',
-            matchcode: 'A32',
-            team1Img: 'assets/eng.png',
-            team2Img: 'assets/aus.png',
-            isLive: false,
-            dateTime: '2024-09-19 07:00PM',
-            bets: [
-              { title: 'MATCH BETS', value: '0' },
-              { title: 'SESSION BETS', value: '0' },
-              { title: 'MATCH TYPE', value: 'ODI' }
-            ]
-          },
-          {
-            team1: 'South Africa',
-            team2: 'Afghanistan',
-            matchcode: 'A32',
-            team1Img: 'assets/southafrica.png',
-            team2Img: 'assets/afg.png',
-            isLive: false,
-            dateTime: '2024-09-20 03:00PM',
-            bets: [
-              { title: 'MATCH BETS', value: '0' },
-              { title: 'SESSION BETS', value: '0' },
-              { title: 'MATCH TYPE', value: 'ODI' }
-            ]
-          },
-        // Add more cricket matches...
+
       ]
     },
     {
@@ -78,6 +38,7 @@ export interface Bet {
       logo: 'assets/football-logo.png',
       matches: [
         {
+          title: 'Canada vs Colombia',
           team1: 'Canada',
           team2: 'Colombia',
           matchcode: 'B12',
@@ -99,11 +60,12 @@ export interface Bet {
       logo: 'assets/tennis-logo.png',
       matches: [
         {
+          title: 'Canada vs Colombia',
           team1: 'Player A',
           team2: 'Player B',
           matchcode: 'T34',
-          team1Img: 'assets/player_a.png',
-          team2Img: 'assets/player_b.png',
+          team1Img: 'assets/elips.png',
+          team2Img: 'assets/elips.png',
           isLive: false,
           bets: [
             { title: 'MATCH BETS', value: '0' },

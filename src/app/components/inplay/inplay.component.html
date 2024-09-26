@@ -27,7 +27,9 @@
               <div class="card-header">
                 <div class="text-container">
                   <div class="text-1">
-                    <p>{{ match.team1 }} VS {{ match.team2 }}</p>
+                    <!-- <p>{{ match.team1 }} VS {{ match.team2 }}</p> -->
+                    <p> {{ match.title.length > 26 ? (match.title | slice:0:26) + '...' : match.title }}</p>
+
                   </div>
                   <div class="text-2">
                     <div class="live" *ngIf="match.isLive">
@@ -60,6 +62,7 @@
                       <div class="bet-title">{{ bet.title }}</div>
                       <div class="bet-value">{{ bet.value }}</div>
                     </div>
+                    
                   </div>
                 </div>
               </div>

@@ -1,0 +1,35 @@
+.header{
+    background-color: #0E1F29;
+    height: 40px;
+    margin-bottom: 10px;
+}
+h2{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+}
+.footer{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+.btn-term-con{
+    width: 100%;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    background-color: #0E1F29;
+    color: white;
+    padding: 10px;
+
+}
+p{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: white;
+}

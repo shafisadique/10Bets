@@ -1,136 +1,131 @@
+<app-loading *ngIf="isLoading"></app-loading>
 <div class="container-fluid">
-    <div class="sport">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-xl-7 col-md-6 col-sm-12">
-                    <div class="sport-header">
-                        <button class="btn custome-button"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                        <button class="btn custome-button">Cricket</button>
-                        <button class="btn custome-button" (click)="toggleLiveScore()"><i class="fa fa-desktop" aria-hidden="true"></i></button>
-                        <!-- Custom Tabs -->
-                        <div class="custom-tabs">
-                            <div class="tab" [ngClass]="{'active-tab': activeTab === 'game-info'}" (click)="setActiveTab('game-info')">GAME INFO</div>
-                            <div class="tab" [ngClass]="{'active-tab': activeTab === 'your-bets'}" (click)="setActiveTab('your-bets')">YOUR BETS</div>
-                        </div>                      
-                    </div>
-                    <!-- Tab Content -->
-                    <div class="live-score"  *ngIf="isLiveScoreVisible && activeTab === 'game-info'">
-                        <img src="assets/score.png">
-                    </div>
-                    <div class="tab-content">
-                        <!-- <div>Game Info Content</div> -->
-                        <!-- <div *ngIf="activeTab === 'your-bets'" class="content">Your Bets Content</div> -->
-                    </div>
-                </div>
-                <div class="col-xl-5 col-md-6 col-sm-12"  *ngIf="activeTab === 'game-info'">
-                    <div class="button-group">
-                        <button class="toggle-button" [ngClass]="{'active': selectedTab === 'live-tv'}" (click)="selectTab('live-tv')">Live TV</button>
-                        <button class="toggle-button" [ngClass]="{'active': selectedTab === 'score'}" (click)="selectTab('score')">Score</button>
-                      </div>     
-
-                        <div class="match-card">
-                          </div>
-                              <div class="match-details" *ngFor="let data of getBettingArrayData" >
-                                  <div class="match-left">
-                                      
-                                      <div class="match-team">
-                                          <p>{{truncateTitle(truncateTitle(data.team))}}</p>
-                                      </div>
-                                  </div>
-                                  <div class="match-one-x-two" *ngIf="data.krate !=0 || data.lrate !=0">
-                                      <div class="bet-one" (click)="open('K',data)">{{data.kRate}}</div>
-                                      <div class="bet-two" (click)="open('l',data)">{{data.lRate}}</div>
-                                  </div>
-                                  <div>
-                                  </div>
-                              <!-- </div>       -->
-                          </div>
-                          <div class="match-card">
-                            <div class="header">
-                                <div class="icon-cricket">
-                                  <div class="session-text">
-                                    <h4>Session</h4>  
-                                  </div>
-                                </div>
-                                <!-- <div class="icon-cricket" *ngIf="gamesName == 'FOOTBALL'">Football</div> -->
-                        
-                                <div class="one-x-two">
-                                    <div class="one">Yes</div>
-                                    <!-- <div class="x">x</div> -->
-                                    <div class="two">No</div>
-                                </div>        
-                            </div>
-                                <div class="match-details" *ngFor="let data of fancyDetails">
-                                    <div class="match-left">
-                                      
-                                         <!-- <div class="match-date" *ngIf="data.inPlay == 'False'">
-                                            <p class="match-time">{{data.title}}</p>
-                                        </div> -->
-                                        <div class="match-team">
-                                            <p>{{truncateTitle(truncateTitle(data.title))}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="match-one-x-two" >
-                                        <div class="bet-one" (click)="open('YES',data)" >
-                                          <div class="run">
-                                            {{data.yRun}}
-                                          </div>
-                                          <div class="rate">
-                                            {{data.yRate}}
-                                          </div>
-                                        </div>
-                                        <!-- <div class="bet-x">-</div> -->
-                                        <div class="bet-two"   (click)="open('NO',data)">
-                                          <div class="run">
-                                            {{data.nRun}}
-                                          </div>
-                                          <div class="rate">
-                                            {{data.nRate}}
-                                          </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                    </div>
-                                <!-- </div>       -->
-                            </div>
-                          </div>
-                </div>
-                <div class="col-xl-12 col-sm-12 col-md-12" style="margin-bottom: 60px;" *ngIf="activeTab === 'your-bets'">
-                  <h2>Session</h2>
-                  <div class="session-card" *ngFor="let session of sessions">
-                    <div class="session-row">
-                      <div class="session-header">Team</div>
-                      <div class="session-header">Amount</div>
-                      <div class="session-header">Rate</div>
-                      <div class="session-header">Mode</div>
-                    </div>
-                    <div class="session-row">
-                      <div class="session-body">{{ session.team }}</div>
-                      <div class="session-body">{{ session.amount }}</div>
-                      <div class="session-body">{{ session.rate }}</div>
-                      <div class="session-body">{{ session.mode }}</div>
-                    </div>
-                  </div>
-                
-                  <!-- Session Bets Section -->
-                  <h2>Session Bets</h2>
-                  <div class="session-card" *ngFor="let bet of sessionBets">
-                    <div class="session-title">{{ bet.title }}</div>
-                    <div class="session-row">
-                      <div class="session-header">Amount</div>
-                      <div class="session-header">Rate</div>
-                      <div class="session-header">Run</div>
-                      <div class="session-header">Mode</div>
-                    </div>
-                    <div class="session-row">
-                      <div class="session-body">{{ bet.amount }}</div>
-                      <div class="session-body">{{ bet.rate }}</div>
-                      <div class="session-body">{{ bet.run }}</div>
-                      <div class="session-body">{{ bet.mode }}</div>
-                    </div>
-                  </div>
-                </div>
-            </div>
+  <div class="sport">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-xl-7 col-md-6 col-sm-12">
+          <div class="sport-header">
+            <button class="btn custome-button" (click)="back()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+            <button class="btn custome-button">Cricket</button>
+            <button class="btn custome-button" (click)="toggleLiveScore()"><i class="fa fa-desktop" aria-hidden="true"></i></button>
+            <!-- Custom Tabs -->
+            <div class="custom-tabs">
+              <div class="tab" [class.active]="activeTab === 'gameInfo'" (click)="setActiveTab('gameInfo')">GAME INFO</div>
+              <div class="tab" [class.active]="activeTab === 'mybet'" (click)="setActiveTab('mybet')">YOUR BETS</div>
+            </div>                      
+          </div>
+          <!-- Tab Content -->
+          <div class="live-score" *ngIf="showScore">
+            <iframe [src]="sanitizedScoreDetails" class="stream-link" title="Live Stream"></iframe>
+          </div>
+          <div class="live-score"  *ngIf="showLiveTV">
+            <iframe [src]="streamLink" class="stream-link" title="Live Stream"></iframe>
+          </div>
+          <div class="tab-content">
+            <!-- Additional content can go here -->
+          </div>
         </div>
+        <div class="col-xl-5 col-md-6 col-sm-12" *ngIf="activeTab === 'gameInfo'">
+          <div class="button-group">
+            <button class="toggle-button"  (click)="toggleVisibiltiyForLiveOrScore('liveTV')">Live TV</button>
+            <button class="toggle-button" (click)="toggleVisibiltiyForLiveOrScore('score')" role="tab">Score</button>
+          </div>
+
+          <div class="match-details" *ngFor="let data of MatchOdds;let i =index">
+            <div class="match-left">
+              <div class="match-team">
+                <p>{{truncateTitle(truncateTitle(data.team))}}</p>
+                <span *ngIf="i < posBetsArray.length">
+                  ({{ posBetsArray[i].value }}) <!-- Use index to access the value -->
+                </span>
+              </div>
+            </div>
+            <div class="match-one-x-two" *ngIf="data.krate != 0 || data.lrate != 0">
+              <div class="bet-one" (click)="openBettingModal('K',data)">{{data.krate}}</div>
+              <div class="bet-two" (click)="openBettingModal('l',data)">{{data.lrate}}</div>
+            </div>
+            <div class="latest" *ngIf="data.krate == 0 && data.lrate == 0">
+              <div class="suppended-text">
+                <p>SUSPENDED</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="match-card">
+            <div class="header">
+              <div class="icon-cricket">
+                <div class="session-text">
+                  <h4>Session</h4>  
+                </div>
+              </div>
+              <div class="one-x-two">
+                <div class="two">No</div>
+                <div class="one">Yes</div>
+              </div>        
+            </div>
+            <div *ngIf="fancyDetails.length == 0">
+              <h5 style="text-align: center; color:white; margin-top:10px">No Bets Available</h5>
+            </div>
+            <div class="match-details" *ngFor="let data of fancyDetails">
+              <div class="match-left">
+                <div class="match-team">
+                  <p>{{truncateTitle(truncateTitle(data.name))}}</p>
+                </div>
+              </div>
+              <div class="match-one-x-two" *ngIf="((data.nrun != 0 || data.nrate != 0) && (data.yrun != 0 || data.yrate != 0))">
+                <div class="bet-two" (click)="openBettingModal('NO',data)">
+                  <div class="run">{{data.nrun}}</div>
+                  <div class="rate">{{data.nrate}}</div>
+                </div>
+                <div class="bet-one" (click)="openBettingModal('YES',data)">
+                  <div class="run">{{data.yrun}}</div>
+                  <div class="rate">{{data.yrate}}</div>
+                </div>
+              </div>
+              <div class="latest" *ngIf="(data.nrun == 0 && data.nrate == 0) && (data.yrun == 0 && data.yrate == 0)">
+                <div class="suppended-text">
+                  <p>SUSPENDED</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12 col-sm-12 col-md-12" style="margin-bottom: 60px;" *ngIf="activeTab === 'mybet'">
+          <h2>Session</h2>
+          <div class="session-card" *ngFor="let session of matchBets">
+            <div class="session-row">
+              <div class="session-header">Team</div>
+              <div class="session-header">Amount</div>
+              <div class="session-header">Rate</div>
+              <div class="session-header">Mode</div>
+            </div>
+            <div class="session-row">
+              <div class="session-body">{{ session.bitteam }}</div>
+              <div class="session-body">{{ session.bitamount }}</div>
+              <div class="session-body">{{ session.bitrate }}</div>
+              <div class="session-body">{{ session.bitmode }}</div>
+            </div>
+          </div>
+
+          <h2>Session Bets</h2>
+          <div class="session-card" *ngFor="let bet of sessions">
+            <div class="session-title">{{ bet.sessionname }}</div>
+            <div class="session-row">
+              <div class="session-header">Amount</div>
+              <div class="session-header">Rate</div>
+              <div class="session-header">Run</div>
+              <div class="session-header">Mode</div>
+            </div>
+            <div class="session-row">
+              <div class="session-body">{{ bet.bitamount }}</div>
+              <div class="session-body">{{ bet.bitrate }}</div>
+              <div class="session-body">{{ bet.run }}</div>
+              <div class="session-body">{{ bet.bitmode }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

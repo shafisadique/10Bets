@@ -9,14 +9,14 @@
     z-index: 999;
 }
 .login-btn{
-    width: 100%;
+    width: 98%;
     color: white;
     font-family: 'Poppins',sans-serif;
     font-weight: 500;
     background-color: #0F212F;
     margin: 5px;
-    border-radius: 10px;
-}
+    border-radius: 10px !important;
+    }
 .error-message{
     font-size: 10px;
 }

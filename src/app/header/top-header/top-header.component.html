@@ -4,7 +4,7 @@
     </div>
     <div class="user-balance">
         <div class="balance-info">
-            <span class="balance-amount">10,000.000</span>
+            <span class="balance-amount">{{ coin | number: '1.2-2' }}</span>
         </div>
         <div class="wallet-icon-container">
             <i class="fas fa-wallet wallet-icon"></i>
@@ -14,3 +14,9 @@
         </div>
     </div>
 </div>
+
+
+<div class="marquee-container">
+    <div class="bet-grue-wrapper">
+      <h5 class="bet-grue">{{getNotification.notification}}</h5>
+    </div>

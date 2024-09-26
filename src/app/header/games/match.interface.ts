@@ -22,68 +22,7 @@ export interface Bet {
   }
   
   export const sports: Sport[] = [
-    {
-      id: 'cricket',
-      name: 'Cricket',
-      logo: 'assets/ball.png',
-      matches: [
-        {
-          team1: 'India',
-          team2: 'Sri Lanka',
-          team1Img: 'assets/india.png',
-          team2Img: 'assets/srilanka.png',
-          isLive: true,
-          matchcode: 'A32',
-          bets: [
-            { title: 'MATCH BETS', value: '0' },
-            { title: 'SESSION BETS', value: '0' },
-            { title: 'MATCH TYPE', value: 'ODI' },
-          ],
-        },
-        {
-          team1: 'England',
-          team2: 'Australia',
-          team1Img: 'assets/eng.png',
-          team2Img: 'assets/aus.png',
-          isLive: false,
-          matchcode: 'A45',
-          dateTime: '2024-09-18 18:30',  // DateTime for upcoming match
-          bets: [
-            { title: 'MATCH BETS', value: '0' },
-            { title: 'SESSION BETS', value: '0' },
-            { title: 'MATCH TYPE', value: 'ODI' },
-          ],
-        },
-        {
-          team1: 'South Africa',
-          team2: 'Afghanistan',
-          team1Img: 'assets/southafrica.png',
-          team2Img: 'assets/afg.png',
-          isLive: false,
-          matchcode: 'A67',
-          dateTime: '2024-09-19 14:00',
-          bets: [
-            { title: 'MATCH BETS', value: '0' },
-            { title: 'SESSION BETS', value: '0' },
-            { title: 'MATCH TYPE', value: 'ODI' },
-          ],
-        },
-        {
-            team1: 'New Zeland',
-            team2: 'Srilanka',
-            team1Img: 'assets/newzeland.png',
-            team2Img: 'assets/srilanka.png',
-            isLive: false,
-            matchcode: 'A67',
-            dateTime: '2024-09-19 14:00',
-            bets: [
-              { title: 'MATCH BETS', value: '0' },
-              { title: 'SESSION BETS', value: '0' },
-              { title: 'MATCH TYPE', value: 'ODI' },
-            ],
-          },
-      ],
-    },
+   
     {
       id: 'football',
       name: 'Football',
@@ -206,3 +145,27 @@ export interface Bet {
         ]
     }]
   
+
+
+    export interface Game {
+      matchcode: number;
+      declare: number;
+      matchType: string;
+      mbet: number;
+      sbet: number;
+      time: string;
+      title: string;
+      type: string;
+      wonBy: string;
+      img1: string | null;
+      img2: string | null;
+    }
+    
+    export interface GameResponse {
+      name: string;
+      gameList: Game[];
+      code: string;
+      coin: number;
+      status: boolean;
+    }
+    

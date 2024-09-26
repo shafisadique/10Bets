@@ -6,15 +6,52 @@
     color: white;
 }
 .header {
-    height: 80px;
+    height: 60px;
     background-color: #1A2E3B;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1; 
 }
 
+/* Container for the marquee effect */
+.marquee-container {
+    position: relative;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+    width: 100%; /* Ensure it takes the full width */
+    background-color: #0F212F; /* For better visibility */
+    padding-top: 60px;
+  }
+  
+  /* Wrapper for the scrolling text */
+  .bet-grue-wrapper {
+    width: 100%;
+    display: inline-block; /* Display inline for scrolling */
+    white-space: nowrap; /* Prevent text wrapping */
+    animation: scrollText 29s linear infinite; /* Infinite scrolling animation */
+  }
+  
+  /* Styles for the scrolling text */
+  .bet-grue {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    display: inline-block; /* Display inline for scrolling */
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    padding-top: 7px;
+  }
+  
+  @keyframes scrollText {
+    0% {
+        transform: translateX(100%); /* Start outside to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* End outside to the left */
+    }
+}
 
 .logo img {
     height: 30px;

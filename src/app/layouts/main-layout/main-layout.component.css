@@ -1,6 +1,6 @@
 /* Header stays fixed at the top */
 .header {
-    height: 80px;
+    height: 70px;
     background-color: #1A2E3B;
     position: fixed;
     top: 0;
@@ -8,6 +8,7 @@
     width: 100%;
     z-index: 1000; 
 }
+
 
 /* Sidebar adjustment */
 .desktop-sidebar {

@@ -5,15 +5,19 @@
         </div>
       <div class="info-row">
         <span>CLINT CODE</span>
-        <span>C1</span>
+        <span>{{profileData.code}}</span>
       </div>
       <div class="info-row">
         <span>CLINT NAME</span>
-        <span>DEMO CLINT</span>
+        <span>{{profileData.name}}</span>
       </div>
       <div class="info-row">
         <span>DATE OF JOINING</span>
-        <span>AUGUST 31, 2024</span>
+        <span>{{ profileData.joindate | date: 'medium' }}</span>
+      </div>
+      <div class="info-row">
+        <span>CONTACT NO</span>
+        <span>{{profileData.contactno}}</span>
       </div>
     </div>
   
@@ -22,13 +26,21 @@
       <div class="info-row">
         <span>RATE DIFFERENCE</span>
         <div class="rate-diff">
-          <select class="rate-select">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
+          <select class="rate-select" [(ngModel)]="rateDifference">
+            <option *ngFor="let rate of getRateOptions()" [value]="rate.key">
+               {{ rate.value }}
+            </option>
           </select>
-          <button class="update-btn">UPDATE</button>
+          <button class="update-btn"(click)="updateRateDifference()">UPDATE</button>
         </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>HELP LINE NUMBER:-</h4>
+      <div class="info-row">
+        <span>RATE DIFFERENCE</span>
+        
       </div>
     </div>
   </div>
