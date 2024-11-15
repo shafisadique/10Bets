@@ -1,34 +1,13 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #1a2a39;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
+
+  .container-fluid {
+    text-align: center;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden;
   }
 
-  .container {
-    text-align: center;
-    
-  }
-
-  h1 {
-    font-size: 120px;
-    margin: 0;
-    color: #0d8bfa;
-    font-weight: bold;
-  }
-
-  h2 {
-    
+  h2 {    
     color: #fff;
     margin-bottom: 40px;
-
   }
 
   p {
@@ -60,22 +39,23 @@ body {
   }
 
   /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    h1 {
-      font-size: 80px;
-    }
+  @media (max-width: 768px) {
 
     .error-code {
-      font-size: 120px;
+      font-size: 40px;
     }
+    p {
+      font-size: 10px;
+      margin-bottom: 30px;
+      color: #c1c1c1;
+    }
+
 
     h2 {
-      font-size: 24px;
+      font-size: 12px;
     }
 
-    p {
-      font-size: 16px;
-    }
+    
 
     .back-btn {
       padding: 10px 20px;

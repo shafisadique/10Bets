@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-notification',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './notification.component.css'
 })
 export class NotificationComponent {
-  continue(){}
+  constructor(private router:Router){}
+  continue(){
+    this.router.navigate(['/'])
+  }
 }

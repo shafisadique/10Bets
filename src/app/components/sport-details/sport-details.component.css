@@ -43,7 +43,7 @@ body.modal-open {
 }
 
 .match-card {
-margin-top: 10px;
+  margin-top: 10px;
   color: white;
   font-family: 'Arial', sans-serif;
   margin-bottom: 10px;
@@ -341,12 +341,11 @@ h2{
     transition: all 0.3s ease-in-out;
 }
 .live-score{
-    width: 100%;
+    width: 90%;
     margin-top: 40px;
-    width: 100%!important;
     height: 200px;
-    border: 2px solid #FFB449;
-    background-color: #272727;
+    border: 2px solid #1f3a4c;
+    background-color: #0F212E;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
     position: relative;
@@ -354,8 +353,8 @@ h2{
 
 }
 .stream-link{
-  width: 600px; 
-  height: 160px; background-color: white;
+  width: 100%; 
+  height: 200px; background-color: white;
 }
 
 .live-score img{
@@ -444,6 +443,7 @@ h2{
     .custom-tabs {
         margin-left: 10px; /* Reduce left margin for mobile */
     }
+    
     .header{
       display: flex;
       width: 100%;
@@ -457,6 +457,31 @@ h2{
   .match-team{
     margin-left: 0;
   }
+  .match-card {
+  margin-top: 10px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 80px;
+ 
+}
+  .live-score{
+    width: 100%;
+    margin-top: 40px;
+    height: 220px;
+    border: 2px solid #1f3a4c;
+    background-color: #272727;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+    padding: 5px;
+
+}
+.stream-link{
+ max-width: 100%; 
+  height: 200px;
+   background-color: white;
+}
+
 .button-group {
   width: 100%;
 }

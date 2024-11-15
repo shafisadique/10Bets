@@ -3,16 +3,18 @@ import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  const cokiesService =inject(AuthService)
-  const myToken = cokiesService.getToken();
-  if(req.url.includes('login')){
+  const authService = inject(AuthService);
+  const token = authService.getToken();
+
+  // Exclude requests like login or public endpoints
+  if (req.url.includes('login') || !token) {
     return next(req);
   }
-  const token = `Bearer ${myToken}`;
-  const cloneReq =req.clone({
-    setHeaders :{
-      Authorization: token
+
+  const authReq = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${token}`
     }
-  })
-  return next(cloneReq);
+  });
+  return next(authReq);
 };
