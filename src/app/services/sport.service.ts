@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { MatchData } from '../shared/sport.interface';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environment';
 import { Game, GameResponse } from '../header/games/match.interface';
 import { BetPlace } from '../shared/bet-place.interface';
 

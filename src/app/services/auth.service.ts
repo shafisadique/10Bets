@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, delay, map, Observable, of, throwError } from 'rxjs';
 import { User } from '../shared/login.interface';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environment';
 
 
 @Injectable({
