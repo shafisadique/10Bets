@@ -11,7 +11,7 @@ import { BetPlace } from '../shared/bet-place.interface';
   providedIn: 'root'
 })
 export class SportService {
-  private apiUrl = environment.oddApiUrl;
+  private apiUrl = environment.apiUrl;
   private balanceSubject = new BehaviorSubject<number>(0);
   balance$ = this.balanceSubject.asObservable();
   // private oddBaseUrl = environment.apiUrl;

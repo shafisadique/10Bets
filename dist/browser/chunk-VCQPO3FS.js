@@ -1,1 +1,0 @@
-import{P as s,j as o}from"./chunk-XV3DYKYB.js";var c=(()=>{let t=class t{constructor(){this.isLoading=new o(!1),this.isLoading$=this.isLoading.asObservable()}hide(){this.isLoading.next(!1)}show(){this.isLoading.next(!0)}};t.\u0275fac=function(e){return new(e||t)},t.\u0275prov=s({token:t,factory:t.\u0275fac,providedIn:"root"});let i=t;return i})();export{c as a};
